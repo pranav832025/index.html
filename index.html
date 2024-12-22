@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+
+  <title>Tech Quest</title>
+
+</head>
+
+<body>
+
+  <h1>Questions</h1>
+
+  <form id="quiz">
+
+  <p>1) which of the following is a NOSQL database?</p>
+
+     <input type="radio"id="mysql" name="questionnarie" value="incorrect">
+
+     <label for="mysql">mysql</label><br>
+
+     <input type="radio"id="oracle" name="questionnarie" value="incorrect">
+
+     <label for="oracle">oracle</label><br>
+
+     <input type="radio"id="mongodb" name="questionnarie" value="correct">
+
+     <label for="mongodb">mongodb</label><br>
+
+     <input type="radio"id="postgresql" name="questionnarie" value="incorrect">
+
+     <label for="postgresql">postgresql</label><br>
+
+    <p>2)Which company created the most used networking software in the 1980's?</p>
+
+    <input type="radio"id="microsoft"name="networking software company" value="incorrect">
+
+    <label for="microsoft">microsoft</label><br>
+
+    <input type="radio"id="IBM" name="networking software company" value="incorrect">
+
+    <label for="IBM">IBM</label><br>
+
+    <input type="radio"id="sun" name="networking software company" value="incorrect">
+
+    <label for="sun">sun</label><br>
+
+    <input type="radio"id="novell" name="networking software company" value="correct">
+
+    <label for="novell">novell</label><br>
+
+    <p>3)what is a GPU?</p><input type="radio"id="Grouped Processing Unit" name="gpu_type" value="incorrect">
+
+    <label for="Grouped Processing Unit">Grouped Processing Unit</label><br>
+
+    <input type="radio"id="Graphics Processing Unit" name="gpu_type" value="correct">
+
+    <label for="Graphics Processing Unit">Graphics Processing Unit</label><br>
+
+    <input type="radio"id="Graphical Performance Utility" name="gpu_type" value="incorrect">
+
+    <label for="Graphical Performance Utility">Graphical Performance Utility</label><br>
+
+    <input type="radio"id="Graphical Portable Unit" name="gpu_type" value="incorrect">
+
+    <label for="Graphical Portable Unit">Graphical Portable Unit</label><br>
+
+    <p>4)How to retrieve all keys from Dictionaries?</p>
+
+    <input type="radio"id="dictionary.keys()" name="dict_keys" value="correct">
+
+    <label for="dictionary.keys()">dictionary.keys()</label><br>
+
+    <input type="radio"id="dictionary.get_keys()" name="dict_keys" value="incorrect">
+
+    <label for="dictionary.get_keys()">dictionary.get_keys()</label><br>  
+
+<div id="score"></div>
+
+    <input type="radio"id="dictionary.extract_keys" name="dict_keys" value="incorrect">
+
+    <label for="dictionary.extract_keys">dictionary.extract_keys</label><br>  
+
+    <input type="radio"id="dictionary.all_keys" name="dict_keys" value="incorrect">
+
+    <label for="dictionary.all_keys">dictionary.all_keys</label><br>
+
+    <p>5)In Python, which module is commonly used for array operations?</p>
+
+    <input type="radio"id="list" name="func" value="incorrect">
+
+    <label for="list">list</label><br>
+
+    <input type="radio"id="math" name="func" value="incorrect">
+
+    <label for="math">math</label><br>
+
+    <input type="radio"id="array" name="func" value="incorrect">
+
+    <label for="array">array</label><br>
+
+    <input type="radio"id="numpy" name="func" value="correct">
+
+    <label for="numpy">numpy</label><br>
+
+    <p>6)which of these is not a feature of java?</p>
+
+    <input type="radio"id="object oriented" name="type" value="incorrect">
+
+    <label for="object oriented">object oriented</label><br>
+
+    <input type="radio"id="platform independent" name="type" value="incorrect">
+
+    <label for="platform independent">platform independent</label><br>
+
+    <input type="radio"id="compiled" name="type" value="correct">
+
+    <label for="compiled">compiled</label><br>
+
+    <input type="radio"id="interpreted language" name="type" value="incorrect">
+
+    <label for="interpreted language">interpreted language</label><br>
+
+    <button id="submit-btn">Submit</button>
+
+</form>
+
+<script>
+
+  const form = document.getElementById('quiz');
+
+  const scoreDiv = document.getElementById('score');
+
+  form.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const score = calculateScore(formData);
+
+    displayScore(score);
+
+  });
+
+  function calculateScore(formData) {
+
+    let score = 0;
+
+    const answers = {
+
+      'questionnarie': 'correct',
+
+      'networking software company': 'correct',
+
+      'gpu_type': 'correct',
+
+      'dict_keys': 'correct',
+
+      'func': 'correct',
+
+      'type': 'correct'
+
+    };
+
+    for (const [key, value] of formData) {
+
+      if (value === answers[key]) {
+
+        score++;
+
+      }
+
+    }
+
+    return score;
+
+  }
+
+  function displayScore(score) {
+
+    scoreDiv.innerHTML = `Your score is ${score} out of 6`;
+
+    form.style.display = 'none'; // Hide the form after submitting
+
+  }
+
+</script>
+
+</body>
+</html>
