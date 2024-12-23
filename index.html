@@ -77,8 +77,6 @@
 
     <label for="dictionary.get_keys()">dictionary.get_keys()</label><br>  
 
-<div id="score"></div>
-
     <input type="radio"id="dictionary.extract_keys" name="dict_keys" value="incorrect">
 
     <label for="dictionary.extract_keys">dictionary.extract_keys</label><br>  
@@ -124,6 +122,8 @@
     <label for="interpreted language">interpreted language</label><br>
 
     <button id="submit-btn">Submit</button>
+     
+     <div id="score"></div>
 
 </form>
 
@@ -141,7 +141,8 @@
 
     const score = calculateScore(formData);
 
-    displayScore(score);
+    displayScore
+
 
   });
 
